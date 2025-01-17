@@ -24,7 +24,7 @@ app.get('/random-car', (req, res) => {
     const imageFiles = files.filter(file => file.match(/\.(jpg|jpeg|png|gif)$/));
 
     const randomImage = imageFiles[Math.floor(Math.random() * imageFiles.length)];
-    res.json({ imageUrl: `http://localhost:${PORT}/images/${randomImage}` });
+    res.json({ imageUrl: `https://carcrash-1-27jy.onrender.com/images/${randomImage}` });
   });
 });
 
