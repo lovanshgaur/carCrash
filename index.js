@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3000;
 const imageDir = path.join(__dirname, 'assets');
 
 app.use('/images', express.static(imageDir));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Replace '*' with your domain if you want to restrict access
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 app.get('/random-car', (req, res) => {
   fs.readdir(imageDir, (err, files) => {
